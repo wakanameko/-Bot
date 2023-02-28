@@ -17,7 +17,7 @@ from tkinter.messagebox import showinfo
 from mastodon import Mastodon
 
 AppName = 'きんたまさくらちゃんトゥートBot'
-Version = '1.0'
+Version = '1.1'
 Develop = '@wakanameko2'
 Original = 'たまさくらちゃんの金玉 きんたまさくらちゃん(@kintamasakura)'
 
@@ -30,10 +30,10 @@ print(AppName)
 print(Develop)
 print(Original)
 
-os.system('python3 -m pip install Mastodon.py')
 
-# if not ur.system == 'Darwin':messagebox.showerror('Attention','Mac以外のPCでの実行は想定されていません。エラーが発生しても自己責任でお願いします。')
 
+if ur.system == 'Darwin':os.system('python3 -m pip install Mastodon.py')
+    
 #MainWindow
 MainWindow = tk.Tk()
 MainWindow.geometry('300x450')
