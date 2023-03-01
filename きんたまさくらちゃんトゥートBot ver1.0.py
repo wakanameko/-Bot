@@ -86,20 +86,20 @@ def exitTAMA():
 def DelInfo():
     if(os.path.isfile('UserData.txt')):
         MSB_DelInfo = tk.messagebox.askquestion('ログイン情報の削除','ログイン情報を削除してもよろしいですか？', icon='warning')
-            if MSB_DelInfo == 'yes':
-                os.remove('UserData.txt')
+        if MSB_DelInfo == 'yes':
+            os.remove('UserData.txt')
 
 def DelAPIKey():
     if(os.path.isfile('API_Keyんたまさくらちゃん.txt')):
         MSB_DelAPI = tk.messagebox.askquestion('APIキーの削除','APIキーを削除してもよろしいですか？', icon='warning')
-            if MSB_DelAPI == 'yes':
-                os.remove('API_Keyんたまさくらちゃん.txt')
+        if MSB_DelAPI == 'yes':
+            os.remove('API_Keyんたまさくらちゃん.txt')
 
 def Delauth():
     if(os.path.isfile('auth.txt')):
         MSB_Delauth = tk.messagebox.askquestion('アクセスキーの削除','アクセスキーを削除してもよろしいですか？', icon='warning')
-            if MSB_Delauth == 'yes':
-                os.remove('auth.txt')
+        if MSB_Delauth == 'yes':
+            os.remove('auth.txt')
 
 def SaveInfo():
     txt_ins_get = (txt_ins.get())
