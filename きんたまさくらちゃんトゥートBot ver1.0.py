@@ -148,6 +148,25 @@ def TNow():
         if not (os.path.isfile('auth.txt')):
             mastodon.log_in(MailData, PassData, to_file = "auth.txt")
         mastodon.toot("たまさくらちゃんの金玉、きんたまさくらちゃん")
+    else:
+        txt_ins_get = (txt_ins.get())
+        txt_CKey_get = (txt_CKey.get())
+        txt_CS_get = (txt_CS.get())
+        if not (os.path.isfile('API_Keyんたまさくらちゃん.txt')):
+            Mastodon.create_app('きんたまさくらちゃんトゥートBot',
+            api_base_url = InsData,
+            to_file = "API_Keyんたまさくらちゃん.txt"
+            )
+            print('api_key作成完了')
+        else:
+            pass
+        mastodon = Mastodon(
+            client_id="API_Keyんたまさくらちゃん.txt", 
+            access_token="auth.txt",
+            api_base_url = InsData)
+        if not (os.path.isfile('auth.txt')):
+            mastodon.log_in(MailData, PassData, to_file = "auth.txt")
+        mastodon.toot("たまさくらちゃんの金玉　きんたまさくらちゃん")
         
 def TNowNK():
     txt_ins_get = (txt_ins.get())
