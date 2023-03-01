@@ -30,10 +30,9 @@ print(AppName)
 print(Develop)
 print(Original)
 
-
-
 if ur.system == 'Darwin':os.system('python3 -m pip install Mastodon.py')
-    
+if ur.system == 'nt':os.system('pip install Mastodon.py')
+
 #MainWindow
 MainWindow = tk.Tk()
 MainWindow.geometry('300x450')
@@ -86,15 +85,21 @@ def exitTAMA():
 
 def DelInfo():
     if(os.path.isfile('UserData.txt')):
-        os.remove('UserData.txt')
+        MSB_DelInfo = tk.messagebox.askquestion('ログイン情報の削除','ログイン情報を削除してもよろしいですか？', icon='warning')
+            if MSB_DelInfo == 'yes':
+                os.remove('UserData.txt')
 
 def DelAPIKey():
     if(os.path.isfile('API_Keyんたまさくらちゃん.txt')):
-        os.remove('API_Keyんたまさくらちゃん.txt')
+        MSB_DelAPI = tk.messagebox.askquestion('APIキーの削除','APIキーを削除してもよろしいですか？', icon='warning')
+            if MSB_DelAPI == 'yes':
+                os.remove('API_Keyんたまさくらちゃん.txt')
 
 def Delauth():
     if(os.path.isfile('auth.txt')):
-        os.remove('auth.txt')
+        MSB_Delauth = tk.messagebox.askquestion('アクセスキーの削除','アクセスキーを削除してもよろしいですか？', icon='warning')
+            if MSB_Delauth == 'yes':
+                os.remove('auth.txt')
 
 def SaveInfo():
     txt_ins_get = (txt_ins.get())
