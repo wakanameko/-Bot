@@ -128,16 +128,13 @@ def Login():
     if not (os.path.isfile('auth.txt')):
         mastodon.log_in(MailData, PassData, to_file = "auth.txt")
 
+def TNow():
+    if verK == True:
+        
 def TNowNK():
     txt_ins_get = (txt_ins.get())
     txt_CKey_get = (txt_CKey.get())
     txt_CS_get = (txt_CS.get())
-    #api = Mastodon(
-    #api_base_url  = f"https://{txt_ins_get}",
-    #client_id     = txt_CKey_get,
-    #client_secret = txt_CS_get,
-    #)
-    #api.toot("たまさくらちゃんの金玉  きんたまさくらちゃん")
     if not (os.path.isfile('API_Keyんたまさくらちゃん.txt')):
         Mastodon.create_app('きんたまさくらちゃんトゥートBot',
         api_base_url = InsData,
@@ -153,6 +150,27 @@ def TNowNK():
     if not (os.path.isfile('auth.txt')):
         mastodon.log_in(MailData, PassData, to_file = "auth.txt")
     mastodon.toot("たまさくらちゃんの金玉　きんたまさくらちゃん")
+
+def TNowK():
+    txt_ins_get = (txt_ins.get())
+    txt_CKey_get = (txt_CKey.get())
+    txt_CS_get = (txt_CS.get())
+    if not (os.path.isfile('API_Keyんたまさくらちゃん.txt')):
+        Mastodon.create_app('きんたまさくらちゃんトゥートBot',
+        api_base_url = InsData,
+        to_file = "API_Keyんたまさくらちゃん.txt"
+        )
+        print('api_key作成完了')
+    else:
+        pass
+    mastodon = Mastodon(
+        client_id="API_Keyんたまさくらちゃん.txt", 
+        access_token="auth.txt",
+        api_base_url = InsData)
+    if not (os.path.isfile('auth.txt')):
+        mastodon.log_in(MailData, PassData, to_file = "auth.txt")
+    mastodon.toot("たまさくらちゃんの金玉、きんたまさくらちゃん")
+
 
 #Widgeds
 Label_wlcm = tk.Label(MainWindow, text = f"{AppName}", font = ("normal", 18, "bold"))
@@ -174,7 +192,8 @@ if(os.path.isfile('UserData.txt')):
 button_Login = tk.Button(MainWindow, text = "ログイン", command = Login, width = 9)
 button_SaveInfo = tk.Button(MainWindow, text = "情報を保存", command = SaveInfo, width = 9)
 Label_Toot = tk.Label(MainWindow, text = "トゥート:", font = ("normal", 14, "bold"))
-button_TNowNK = tk.Button(MainWindow, text = "トゥート", command = TNowNK, width = 9)
+chk_K = tkinter.Checkbutton(text='句読点を付ける', variable = varK)
+button_TNowNK = tk.Button(MainWindow, text = "トゥート", command = TNow, width = 9)
 
 #MenuBar
 menu_file = tk.Menu(MainWindow)
@@ -191,7 +210,7 @@ menu_file.add_command(label = '閉じる', command = exitTAMA)
 menu_Toot = tk.Menu(MainWindow)
 Menubaa.add_cascade(label = "トゥート", menu = menu_Toot)
 menu_Toot.add_command(label = 'トゥート', command = TNowNK)
-#menu_file.add_command(label = 'トゥート(句読点あり)', command=TNowK)
+menu_file.add_command(label = 'トゥート(句読点あり)', command=TNowK)
 
 #Layouts
 Label_wlcm.pack()
@@ -207,6 +226,7 @@ button_Login.pack(anchor = tk.W, padx = 15, pady = 0)
 button_SaveInfo.pack(anchor = tk.W, padx = 15, pady = 0)
 Label_emp.pack(anchor = tk.W, padx = 15, pady = 0)
 Label_Toot.pack(anchor = tk.W, padx = 15, pady = 0)
-button_TNowNK.pack(anchor = tk.W, padx = 15, pady = 0)
+chk_K.pack(anchor = tk.W, padx = 15, pady = 0)
+button_TNow.pack(anchor = tk.W, padx = 15, pady = 0)
 
 MainWindow.mainloop()
