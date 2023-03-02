@@ -30,8 +30,11 @@ print(AppName)
 print(Develop)
 print(Original)
 
-if ur.system == 'Darwin':os.system('python3 -m pip install Mastodon.py')
-if ur.system == 'nt':os.system('pip install Mastodon.py')
+# if ur.system == 'Darwin':os.system('python3 -m pip install Mastodon.py')
+
+if not ur.system == 'Darwin':(print('MacOS以外での実行は想定されていません。問題が発生しても自己責任でお願いします。')
+    NSOS = messagebox.showinfo("注意", "MacOS以外での実行は想定されていません。問題が発生しても自己責任でお願いします。")
+)
 
 #MainWindow
 MainWindow = tk.Tk()
