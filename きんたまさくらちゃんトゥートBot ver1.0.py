@@ -175,6 +175,7 @@ if(os.path.isfile('UserData.txt')):
 button_Login = tk.Button(MainWindow, text = "ログイン", command = Login, width = 9)
 button_SaveInfo = tk.Button(MainWindow, text = "情報を保存", command = SaveInfo, width = 9)
 Label_Toot = tk.Label(MainWindow, text = "トゥート:", font = ("normal", 14, "bold"))
+varK = tk.BooleanVar()
 chk_K = tkinter.Checkbutton(text='句読点を付ける', variable = varK)
 button_TNowNK = tk.Button(MainWindow, text = "トゥート", command = TNow, width = 9)
 
