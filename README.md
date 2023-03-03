@@ -12,3 +12,6 @@ PIL
 webbrowser
 tkinter
 Mastodon.py
+
+# icon
+![AppIcon](https://user-images.githubusercontent.com/63937252/222711464-5cbe74f5-d403-4868-b650-226a5854ba9e.png)
